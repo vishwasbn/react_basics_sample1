@@ -1,7 +1,6 @@
 import React from 'react'
 
-function Counter(props) {
-    const {title,counter} = props;
+function Counter({ title, counter }) {
     return (
         <div><h1>{title}  {counter}</h1></div>
     )
