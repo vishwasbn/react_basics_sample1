@@ -1,18 +1,18 @@
-import Footer from './footer/footer.js'
-const company = 'Suyati';
+import { useState } from 'react';
+
 function App() {
-  var name = 'React JS';
+
+  const [count, setCount] = useState(2);
+  function addcount() {
+    setCount(count + 1);
+    console.log(count);
+  }
   return (<div>
-            <Header />
-            <p> Hello World {name}</p>
-            <Footer data={company}/>
-          </div>
+    <button onClick={addcount}>Add</button>
+    <h1>Counter : {count}</h1>
+  </div>
 
-  );  
-}
-
-function Header() {
-  return (<h1 style={{background:'red',color:'blue'}} >Hello my Name is Vishwas </h1>);
+  );
 }
 
 export default App;
