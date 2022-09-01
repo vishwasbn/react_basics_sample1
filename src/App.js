@@ -1,22 +1,28 @@
 import { useState } from 'react';
-import Counter from './Counter/Counter';
+import Employee from './Employee';
 
 function App() {
 
   const [count, setCount] = useState(0);
 
-  const obj1 = {
-    title: 'First Counter :',
-    counter: count
-  }
+  const emp = [{ name: 'Vishwas', age: '26' },
+  { name: 'Nishanth', age: '18' },
+  { name: 'Thanmay', age: '17' },
+  { name: 'Chinnu', age: '16' }];
+
   function addcount() {
     setCount(count + 1);
     console.log(count);
   }
-  return (<div>
+
+  return (<div className='header'>
     <button onClick={addcount}>Add</button>
-    <Counter {...obj1} />
-    <Counter title="Second Counter :" counter={count} />
+    {
+      emp.map((obj,index) => {
+        return (<Employee key={index} name={obj.name} age={obj.age} />)
+      })
+    }
+
   </div>
 
   );
