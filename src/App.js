@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Footer from './footer/footer.js'
+const company = 'Suyati';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  var name = 'React JS';
+  return (<div>
+            <Header />
+            <p> Hello World {name}</p>
+            <Footer data={company}/>
+          </div>
+
+  );  
+}
+
+function Header() {
+  return (<h1 style={{background:'red',color:'blue'}} >Hello my Name is Vishwas </h1>);
 }
 
 export default App;
