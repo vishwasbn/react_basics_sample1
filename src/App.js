@@ -19,7 +19,7 @@ function App() {
     <button onClick={addcount}>Add</button>
     {
       emp.map((obj,index) => {
-        return (<Employee key={index} name={obj.name} age={obj.age} />)
+        return (<Employee key={index} {...obj} />)
       })
     }
 

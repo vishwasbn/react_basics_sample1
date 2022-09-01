@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Employee(props) {
+function Employee({name,age}) {
   return (
-    <div>Name : {props.name} , Age : {props.age}</div>
+    <div>Name : {name} , Age : {age}</div>
   )
 }
 
