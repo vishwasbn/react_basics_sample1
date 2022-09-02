@@ -1,28 +1,17 @@
-import { useState } from 'react';
-import Employee from './Employee';
+import Component from "./Component";
+import { useState } from "react";
+
 
 function App() {
 
-  const [count, setCount] = useState(0);
-
-  const emp = [{ name: 'Vishwas', age: '26' },
-  { name: 'Nishanth', age: '18' },
-  { name: 'Thanmay', age: '17' },
-  { name: 'Chinnu', age: '16' }];
-
-  function addcount() {
-    setCount(count + 1);
-    console.log(count);
+  const [state, setState] = useState(false);
+  function handleClick() {
+    setState(!state);
   }
 
-  return (<div className='header'>
-    <button onClick={addcount}>Add</button>
-    {
-      emp.map((obj,index) => {
-        return (<Employee key={index} {...obj} />)
-      })
-    }
-
+  return (<div>
+    <h1 onClick={handleClick}>Show / Hide</h1>
+    {state && <Component />}
   </div>
 
   );
