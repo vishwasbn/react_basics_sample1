@@ -5,13 +5,14 @@ import { useState } from "react";
 function App() {
 
   const [state, setState] = useState(false);
+  
   function handleClick() {
     setState(!state);
   }
 
   return (<div>
     <h1 onClick={handleClick}>Show / Hide</h1>
-    {state && <Component title='Comp 1'/>}    
+    {state && <Component/>}    
   </div>
 
   );

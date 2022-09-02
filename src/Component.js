@@ -1,13 +1,19 @@
-import React,{useState} from 'react'
+import React, { useState, useEffect } from 'react'
 
 function Component() {
+    useEffect(()=>{
+        console.log('Mounting....');
+        return()=>{
+            console.log('Unmounting...');
+        }
+    })
     const [count, setCount] = useState(0);
-  return (
-    <div style={{fontSize:'x-large',fontWeight:'bold'}}>
-        <button onClick={()=>{setCount(count+1)}}>Increment</button>
-        <h1>This is a component {count}</h1>
-    </div>
-  )
+    return(
+        <div>
+            <button onClick={()=>{setCount(count+1)}}>Increment </button>
+            <h1>This is Component {count}</h1>
+        </div>
+    )
 }
 
 export default Component
