@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
 function Component() {
-    useEffect(()=>{
-        console.log('Mounting....');       
-    },[])
+
     const [count, setCount] = useState(0);
+
+    useEffect(()=>{
+        console.log('Mounting....'); 
+        console.log('Updating...'+count);      
+    },[count])
+    
     return(
         <div>
             <button onClick={()=>{setCount(count+1)}}>Increment </button>
