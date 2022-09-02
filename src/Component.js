@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 function Component() {
     useEffect(()=>{
-        console.log('Mounting....');
-        return()=>{
-            console.log('Unmounting...');
-        }
-    })
+        console.log('Mounting....');       
+    },[])
     const [count, setCount] = useState(0);
     return(
         <div>
