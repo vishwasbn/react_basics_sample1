@@ -11,7 +11,7 @@ function App() {
 
   return (<div>
     <h1 onClick={handleClick}>Show / Hide</h1>
-    {state && <Component />}
+    {state && <Component title='Comp 1'/>}    
   </div>
 
   );
