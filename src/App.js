@@ -6,12 +6,18 @@ function App() {
 
   const [state, setState] = useState(false);
   
-  function handleClick() {
-    setState(!state);
-  }
+  // function handleClick() {
+  //   setState(!state);
+  // }
 
+  // return (<div>
+  //   <h1 onClick={handleClick}>Show / Hide</h1>
+  //   {state && <Component/>}    
+  // </div>
+
+  // );
   return (<div>
-    <h1 onClick={handleClick}>Show / Hide</h1>
+    <h1 onClick={()=>{setState(!state)}}>Show / Hide</h1>
     {state && <Component/>}    
   </div>
 
