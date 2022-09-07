@@ -16,17 +16,33 @@ function App() {
     </div>
     <div className="input">
       <input value={toDo} onChange={(e) => setToDo(e.target.value)} type="text" placeholder="🖊️ Add item..." />
-      <i onClick={() => { setToDoList([...toDoList, toDo]); setToDo(''); }} className="fas fa-plus"></i>
+      <i onClick={() => { setToDoList([...toDoList, { id: Date.now(), text: toDo, status: false }])
+       setToDo('')}} className="fas fa-plus"></i>
     </div>
     <div className="todos">
 
       {
-        toDoList.map((entry, index) => {
+        toDoList.map((obj, index) => {
           return (
-            <div className="todo" key={index}>
+            <div className="todo" >
               <div className="left">
-                <input type="checkbox" name="" id="" />
-                <p>{entry}</p>
+                <input onChange={(e) => {       
+                  console.log(e.target.checked)          
+                  setToDoList(toDoList.filter((obj2) => {
+                    console.log(obj)
+                    if (obj2.id === obj.id) {
+                      obj2.status = e.target.checked
+                       
+                      
+                    }     
+                    console.log(obj2)  
+                    return obj2   
+                    
+                            
+                  }))                  
+                }}
+                checked={obj.status} type="checkbox" name="" id="" />
+                <p>{obj.text}</p>
               </div>
               <div className="right">
                 <i className="fas fa-times"></i>
@@ -34,6 +50,17 @@ function App() {
             </div>
 
           );
+        })
+      }
+
+{
+        toDoList.map((obj, index) => {
+          if(obj.status){
+            return (
+              <h1>{obj.text}</h1>  
+            );
+          }
+          return null;
         })
       }
 
