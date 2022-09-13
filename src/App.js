@@ -1,35 +1,30 @@
 import NavBar from "./Components/NavBar/NavBar";
 import './App.css'
+import axios from "./Axios";
 import Banner from "./Components/Banner/Banner";
 import RowPost from "./Components/RowPost/RowPost";
-import axios from "axios";
-import {useState} from 'react';
-
+import { useState, useEffect } from "react";
+import {  api_key } from "./Constants";
 function App() {
-  const [data, setData] = useState([]);
+  const [genre, setGenre] = useState([])
+  useEffect(()=>{
+    axios.get(`genre/movie/list?api_key=${api_key}&language=en-US`)
+    .then((response)=>{
+      setGenre(response.data.genres);
+    })
+  },[])
   return (
     <div className="app">
       <NavBar />
       <Banner />
-      <RowPost />
-      <button onClick={() => {
-        axios.get('https://jsonplaceholder.typicode.com/posts').then(
-          (response) => {
-            //console.log(response.data)
-            setData(response.data);
-          }
-        )
-      }}>Click Me</button>
       {
-        data.map((entry, index)=>{
+        genre.map((item, index)=>{
           return(
-            <div>
-              <span>{index+1}  <h4>{entry.title}</h4></span>
-              <h5>{entry.body}</h5>
-            </div>
-          );
+            <RowPost category={item.name} id={item.id} key={item.id}/>
+          )
         })
       }
+      
     </div>
   );
 }
