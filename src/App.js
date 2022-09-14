@@ -5,6 +5,7 @@ import Banner from "./Components/Banner/Banner";
 import RowPost from "./Components/RowPost/RowPost";
 import { useState, useEffect } from "react";
 import {  api_key } from "./Constants";
+import {originals_url, movieGenre_url} from './Urls';
 function App() {
   const [genre, setGenre] = useState([])
   useEffect(()=>{
@@ -17,10 +18,11 @@ function App() {
     <div className="app">
       <NavBar />
       <Banner />
+      <RowPost category='Netflix Originals' url={originals_url}/>
       {
         genre.map((item, index)=>{
           return(
-            <RowPost category={item.name} id={item.id} key={item.id}/>
+            <RowPost key={item.id} isSmall category={item.name} url={movieGenre_url+item.id} />
           )
         })
       }
