@@ -24,3 +24,9 @@
     max-height: 150px;
     margin-right: 10px;
 }
+
+.poster:hover , .smallPoster:hover{
+    transform: scale(1.2);
+        /* transition: transform 330ms ease-in-out; */
+        transition: 300ms;
+}
